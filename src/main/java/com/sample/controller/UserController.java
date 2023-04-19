@@ -26,6 +26,8 @@ public class UserController {
         return new ApiData<>(SaResult.error());
     }
 
+
+
     @GetMapping("/isLogin")
     public ApiData<String> isLogin() {
         return new ApiData<>("当前会话是否登陆:" + StpUtil.isLogin());
