@@ -4,9 +4,14 @@ import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
 import com.sample.data.ApiData;
 import com.sample.pojo.User;
+import com.sample.util.ImageVerificationCode;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletResponse;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 /**
  * @author xiaolan, created on 2023/3/20
@@ -26,6 +31,12 @@ public class UserController {
         return new ApiData<>(SaResult.error());
     }
 
+    @GetMapping("/getVerificationgetVerification")
+    public void getVerification(HttpServletResponse response) throws IOException {
+        ImageVerificationCode imageVerificationCode = new ImageVerificationCode();
+        BufferedImage image = imageVerificationCode.getImage();
+        imageVerificationCode.output(image, response.getOutputStream());
+    }
 
 
     @GetMapping("/isLogin")
