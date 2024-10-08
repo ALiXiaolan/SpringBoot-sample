@@ -1,4 +1,4 @@
-package com.sample.netty;
+package com.sample.nio;
 
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ import java.nio.channels.FileChannel;
  * @date 2024/9/11 14:58
  */
 @Service
-public class NettyService {
+public class NioService {
 
     /**
      * 本地文件写数据
